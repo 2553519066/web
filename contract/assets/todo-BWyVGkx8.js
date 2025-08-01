@@ -1,1 +1,0 @@
-import{bh as o,bi as e}from"./index-B0EZE7ii.js";const n=t=>o.post(`${e.contract}/todoInfo/getPageList`,t),a=t=>o.post(`${e.contract}/todoInfo/archive`,t),c=t=>o.get(`${e.contract}/todoInfo/delete/${t.id}`,t),s=t=>o.get(`${e.contract}/todoInfo/updateRead/${t.id}`,t),d=t=>o.get(`${e.contract}/todoInfo/detail/${t}`);export{a,c as d,n as q,d as t,s as u};
