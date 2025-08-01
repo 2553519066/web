@@ -1,1 +1,0 @@
-import{c3 as o}from"./index-D9FXDxt4.js";function i(t){const n=`//fssc-client.wumart.com/#/formSubmit?submitId=${t.submitId}&token=${o.get("token")}`;window.open(n,"_blank")}function a(t){if(t.flowId){let n=`//fssc-client.wumart.com/#/examine/detailPage?flowEngineInstanceId=${t.flowId}&token=${o.get("token")}&isThird=y`;window.open(n,"_blank")}}export{a as o,i as t};
