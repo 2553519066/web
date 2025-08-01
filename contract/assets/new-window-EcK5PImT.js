@@ -1,0 +1,1 @@
+import{d as o,h as n,y as t,k as s,A as a,Q as c}from"./index-CeQ2E0rp.js";const _={class:"new-window"},r=o({__name:"new-window",setup(d){return(p,i)=>{const e=n("RouterView");return s(),t("div",_,[a(e)])}}}),m=c(r,[["__scopeId","data-v-e700ba2a"]]);export{m as default};
