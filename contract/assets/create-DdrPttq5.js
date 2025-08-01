@@ -1,1 +1,0 @@
-import{C as e}from"./create-or-edit-BWHTacrz.js";import{d as t,j as r,k as a}from"./index-D-MzvSrp.js";import"./index-ydV7o_vk.js";const _=t({name:"ContractTemplateCreate",__name:"create",setup(o){return(n,c)=>(a(),r(e))}});export{_ as default};
