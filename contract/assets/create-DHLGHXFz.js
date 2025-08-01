@@ -1,1 +1,0 @@
-import{C as e}from"./create-or-edit-DNI_c91g.js";import{d as t,j as r,k as a}from"./index-BbO6UiJA.js";import"./index-BjaAV-EV.js";const _=t({name:"ContractTemplateCreate",__name:"create",setup(o){return(n,c)=>(a(),r(e))}});export{_ as default};

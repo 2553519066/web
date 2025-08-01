@@ -1,1 +1,0 @@
-import{bh as e,bi as c}from"./index-BbO6UiJA.js";const o=t=>e.post(`${c.contract}/contractAdvanceApply/page`,t),r=t=>e.get(`${c.contract}/contractAdvanceApplySign/getProcessInstanceId/${t.processInstanceId}`,t),a=t=>e.download(`${c.contract}/contractAdvanceApply/export`,{method:"post",data:t});export{a as e,r as g,o as q};

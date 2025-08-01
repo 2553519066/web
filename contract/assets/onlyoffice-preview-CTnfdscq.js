@@ -1,1 +1,0 @@
-import{d as r,S as a,T as s,j as n,k as t,dk as u,dl as c,v as f}from"./index-BbO6UiJA.js";import{O as l}from"./onlyoffice-Dr_inLSa.js";const y=r({__name:"onlyoffice-preview",setup(p){const e=a(),o=s(()=>({data:{url:e.query.url,name:e.query.name},onlyofficeBase:e.query.onlyofficeBase}));return(i,m)=>(t(),n(f(l),u(c(o.value)),null,16))}});export{y as default};
