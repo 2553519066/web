@@ -29,6 +29,12 @@ let profitChart = new Chart(ctx, {
     maxBarThickness: 20, // 去掉过小的限制
     scales: {
       y: {
+        grid: {
+          display: true, // 显示网格线
+          drawBorder: true, // 不绘制坐标轴边框
+          drawOnChartArea: true, // 不在图表区域内绘制网格线
+          drawTicks: false // 绘制刻度线
+        },
         beginAtZero: true,
         ticks: { callback: (v) => "￥" + v }
       }
