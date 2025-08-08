@@ -28,20 +28,20 @@
           <div class="input-group">
             <div class="input-title">每日销量（5元/瓶/柜）</div>
             <div class="btn-group" id="bottleBtns">
-              <button class="btn" data-bottles="1">1瓶</button>
-              <button class="btn active" data-bottles="2">2瓶</button>
-              <button class="btn" data-bottles="5">5瓶</button>
-              <button class="btn" data-bottles="10">10瓶</button>
+              <div class="btn" data-bottles="1">1瓶</div>
+              <div class="btn active" data-bottles="2">2瓶</div>
+              <div class="btn" data-bottles="5">5瓶</div>
+              <div class="btn" data-bottles="10">10瓶</div>
             </div>
           </div>
 
           <div class="input-group">
             <div class="input-title bb">运营时长</div>
             <div class="btn-group select-wrapper" id="durationSelect">
-              <button class="btn-tag" data-bottles="30">1个月</button>
-              <button class="btn-tag active" data-bottles="90">3个月</button>
-              <button class="btn-tag" data-bottles="180">6个月</button>
-              <button class="btn-tag" data-bottles="365">1年</button>
+              <div class="btn-tag" data-bottles="30">1个月</div>
+              <div class="btn-tag active" data-bottles="90">3个月</div>
+              <div class="btn-tag" data-bottles="180">6个月</div>
+              <div class="btn-tag" data-bottles="365">1年</div>
             </div>
           </div>
           <div class="hr-dooted"></div>
@@ -51,19 +51,19 @@
           <div class="result-section">
             <div class="result-cards">
               <div class="card">
-                <div class="card-value" id="dailyProfit">10</div>
+                <div class="card-value digitText" id="dailyProfit">10</div>
                 <div class="card-title">日均收益</div>
               </div>
               <div class="card">
-                <div class="card-value" id="monthlyProfit">300</div>
+                <div class="card-value digitText" id="monthlyProfit">300</div>
                 <div class="card-title">月均收益</div>
               </div>
               <div class="card">
-                <div class="card-value" id="yearlyProfit">300</div>
+                <div class="card-value digitText" id="yearlyProfit">300</div>
                 <div class="card-title">年均收益</div>
               </div>
               <div class="card highlight-card">
-                <div class="card-value" id="yearlyProfitRatio">600%</div>
+                <div class="card-value digitText" id="yearlyProfitRatio">600%</div>
                 <div class="card-title">年收益率</div>
               </div>
             </div>
@@ -71,12 +71,33 @@
               <canvas id="profitChart"></canvas>
             </div>
           </div>
-
           <div class="save-main">
-            <button class="save-btn" id="saveBtn">保存当前方案</button>
+            <div class="save-btn" id="saveBtn">保存当前方案</div>
           </div>
           <div class="saved-list" id="savedList">
-            <!-- 保存方案二： -->
+            <!-- <div class="saved-li">
+              <div class="saved-sub-h1">保存方案二：</div>
+              <div class="saved-sub-box">
+                <div class="saved-sub-info">
+                  <div class="text">智能柜数量：149台</div>
+                  <div class="text">每日销售10瓶/天</div>
+                  <div class="text">运营时长：1年</div>
+                </div>
+                <div class="saved-sub-desc">
+                  <div class="text">
+                    <span class="tpl">年收益：</span>
+                    <span class="box-text digitText">
+                      <span class="unit bold">￥</span>
+                      <span class="num bold">2,682,000</span>
+                    </span>
+                  </div>
+                  <div class="text">
+                    <span class="tpl">年收益率：</span>
+                    <span class="bold digitText">600%</span>
+                  </div>
+                </div>
+              </div>
+            </div> -->
             <div class="no-saved">暂无保存的方案</div>
           </div>
         </div>

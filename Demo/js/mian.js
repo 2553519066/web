@@ -145,14 +145,14 @@ function renderSavedList() {
               <div class="saved-sub-desc">
                 <div class="text">
                   <span class="tpl">年收益：</span>
-                  <span class="box-text">
+                  <span class="box-text digitText">
                     <span class="unit bold">￥</span>
                     <span class="num bold">${item.data.yearly.toLocaleString()}</span>
                   </span>
                 </div>
                 <div class="text">
                   <span class="tpl">年收益率：</span>
-                  <span class="bold">${item.data.roi}%</span>
+                  <span class="bold digitText">${item.data.roi}%</span>
                 </div>
               </div>
             </div>

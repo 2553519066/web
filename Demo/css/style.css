@@ -12,6 +12,14 @@
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+/* 数字样式 */
+.digitText {
+  font-family: "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased; /* 适用于 Webkit 浏览器，如 Chrome、Safari */
+  -moz-osx-font-smoothing: grayscale; /* 适用于 Firefox */
+}
+
 html {
   font-size: 62.5%; /* 16px * 62.5% = 10px */
   user-select: none;
@@ -41,7 +49,7 @@ body {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 2.6rem;
   font-weight: bold;
   letter-spacing: 2px;
   color: #fff;
@@ -55,18 +63,18 @@ body {
   margin-top: 12px;
   display: flex;
   align-items: center;
-  height: 37px;
+  height: 41px;
   justify-content: center;
-  .bg {
-    background-image: url(../images/h1-desc-bg.png);
-    width: 160px;
-    height: 60px;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: center;
-    position: relative;
-    top: 0px;
-  }
+}
+.subtitle .bg {
+  background-image: url(../images/h1-desc-bg.png);
+  width: 160px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  position: relative;
+  top: 0px;
 }
 
 /* 内容区域 */
@@ -82,14 +90,14 @@ body {
   padding: 15px 15px;
   background-color: #fff;
   position: relative;
-  .hr-dooted {
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border: 1px dashed #999999;
-    width: calc(100% - 30px);
-  }
+}
+.input-section .hr-dooted {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-bottom: 1px dashed #999999;
+  width: calc(100% - 30px);
 }
 .result-mian {
   border-radius: 10px; /* 圆角效果 */
@@ -108,9 +116,9 @@ body {
   font-weight: bold;
   display: flex;
   align-items: center;
-  &.bb {
-    margin-bottom: 0;
-  }
+}
+.input-title.bb {
+  margin-bottom: 0;
 }
 
 .input-title:before {
@@ -316,6 +324,9 @@ select {
   border: none;
   border-radius: 50px;
   font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(42, 92, 170, 0.2);
@@ -358,91 +369,68 @@ select {
   padding: 20px;
   font-size: 1.4rem;
 }
-.saved-li {
-  .saved-sub-h1 {
-    font-size: 1.6rem;
-    margin-bottom: 12px;
-    color: var(--dark);
-    font-weight: bold;
-    align-items: center;
-  }
-  .saved-sub-box {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    font-size: 1.4rem;
-    display: flex;
-
-    .saved-sub-info {
-      padding: 15px 0 15px 15px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: #f0f0f0;
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        right: -20px;
-        width: 0;
-        height: 0;
-        border-top: 48px solid transparent; /* 左边透明 */
-        border-bottom: 48px solid transparent; /* 右边透明 */
-        border-left: 20px solid #f0f0f0; /* 底边蓝色，形成三角形 */
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        right: -23px;
-        width: 0;
-        height: 0;
-        border-top: 56px solid transparent; /* 左边透明 */
-        border-bottom: 55px solid transparent; /* 右边透明 */
-        border-left: 22px solid #fff; /* 底边蓝色，形成三角形 */
-      }
-    }
-    .saved-sub-desc {
-      flex: 1;
-      padding: 15px 15px 15px 35px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: #e8f0f8;
-      .box-text {
-        display: inline-block;
-        white-space: nowrap; /* 防止换行 */
-      }
-      .bold {
-        font-weight: bold;
-      }
-      .unit {
-        font-size: 1.2rem;
-      }
-    }
-  }
+.saved-sub-h1 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: var(--dark);
+  font-weight: bold;
+  align-items: center;
 }
-
-/* <div class="saved-li">
-<div class="saved-sub-h1">保存方案一：</div>
-<div class="saved-sub-box">
-  <div class="saved-sub-info">
-    <div class="text">智能柜数量：29台</div>
-    <div class="text">每日销售2瓶/天</div>
-    <div class="text">运营时长：1年</div>
-  </div>
-  <div class="saved-sub-desc">
-    <div class="text">
-      <span class="tpl">年收益：</span>
-      <span class="unit">￥</span>
-      <span class="num">3600</span>
-    </div>
-    <div class="text">年收益率：120%</div>
-  </div>
-</div>
-</div> */
+.saved-sub-box {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 1.4rem;
+  display: flex;
+}
+.bold {
+  font-weight: bold;
+}
+.saved-sub-box .saved-sub-desc {
+  flex: 1;
+  padding: 15px 15px 15px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #e8f0f8;
+}
+.saved-sub-box .saved-sub-desc .box-text {
+  display: inline-block;
+  white-space: nowrap; /* 防止换行 */
+}
+.saved-sub-box .saved-sub-desc .unit {
+  font-size: 1.2rem;
+}
+.saved-sub-info {
+  padding: 15px 0 15px 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f0f0f0;
+  position: relative;
+}
+.saved-sub-info::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border-top: 48px solid transparent; /* 左边透明 */
+  border-bottom: 48px solid transparent; /* 右边透明 */
+  border-left: 20px solid #f0f0f0; /* 底边蓝色，形成三角形 */
+}
+.saved-sub-info::before {
+  content: "";
+  position: absolute;
+  right: -23px;
+  width: 0;
+  height: 0;
+  border-top: 56px solid transparent; /* 左边透明 */
+  border-bottom: 55px solid transparent; /* 右边透明 */
+  border-left: 22px solid #fff; /* 底边蓝色，形成三角形 */
+}
 
 @media (max-width: 400px) {
   html {
@@ -459,15 +447,15 @@ select {
 
   .card {
     padding: 10px 0;
-    .card-value {
-      font-size: 22px;
-    }
-    .card-value::before {
-      font-size: 20px;
-    }
-    .font-size {
-      font-size: 12px;
-    }
+  }
+  .card .card-value {
+    font-size: 22px;
+  }
+  .card .card-value::before {
+    font-size: 20px;
+  }
+  .card .font-size {
+    font-size: 12px;
   }
 }
 
@@ -483,14 +471,14 @@ select {
   }
   .card {
     padding: 10px 0;
-    .card-value {
-      font-size: 20px;
-    }
-    .card-value::before {
-      font-size: 18px;
-    }
-    .font-size {
-      font-size: 10px;
-    }
+  }
+  .card .card-value {
+    font-size: 20px;
+  }
+  .card .card-value::before {
+    font-size: 18px;
+  }
+  .card .font-size {
+    font-size: 10px;
   }
 }
