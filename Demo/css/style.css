@@ -1,0 +1,411 @@
+:root {
+  --primary: #1b68bc;
+  --secondary: #f8b62b;
+  --dark: #333;
+  --light: #f8f9fa;
+  --success: #28a745;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+  padding: 0;
+  font-size: 16px;
+}
+
+.app-container {
+  max-width: 100%;
+  min-height: 100vh;
+  background: white;
+  padding: 20px 15px;
+  background: linear-gradient(to bottom, #014cad 0%, #bad7e4 30%, #cfdee6 100%);
+}
+/* 标题 */
+.header {
+  text-align: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  padding-top: 40px;
+}
+
+.subtitle {
+  color: #fff;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+/* 内容区域 */
+.app-main {
+  background-color: #fff;
+  /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); 设置阴影 */
+  box-shadow: 1px -7px 20px 4px rgba(186, 215, 228, 0.8);
+  border-radius: 10px; /* 圆角效果 */
+  padding: 10px 10px;
+  position: relative;
+  top: -10px;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-title {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--dark);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.input-title:before {
+  /* content: "";
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: var(--primary);
+  margin-right: 8px; */
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.slider {
+  flex: 1;
+  height: 20px;
+  -webkit-appearance: none;
+  background: #e8f0f8;
+  border-radius: 50px;
+  outline: none;
+  margin-right: 15px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.value-display {
+  min-width: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  flex: 1 0 calc(25% - 8px);
+  min-width: 0;
+  padding: 12px 5px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-tag {
+  flex: 1 0 calc(25% - 8px);
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+  min-width: 0;
+  padding: 12px 5px 12px 30px;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.btn-tag::after {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -10px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+}
+.btn-tag.active::after {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -10px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  font-size: 12px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #e8f0f8;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.card:nth-child(1) {
+  border-radius: 10px 0 0 0;
+}
+.card:nth-child(2) {
+  border-radius: 0 10px 0 0;
+}
+.card:nth-child(3) {
+  border-radius: 0 0 0 10px;
+}
+.card:nth-child(4) {
+  border-radius: 0 0 10px 0;
+}
+
+.card-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.highlight-card {
+  grid-column: span 1;
+}
+
+.highlight-card .card-title,
+.highlight-card .card-value {
+  color: #91674c;
+}
+.card .card-value::before {
+  content: "￥";
+  font-size: 22px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 20px;
+}
+.save-main {
+  display: flex;
+  justify-content: center;
+}
+.save-btn {
+  width: 60%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(42, 92, 170, 0.2);
+}
+
+.saved-list {
+  display: grid;
+  gap: 12px;
+}
+
+.saved-item {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--secondary);
+}
+
+.saved-title {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.saved-detail {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.saved-profit {
+  font-weight: bold;
+  color: var(--success);
+  font-size: 14px;
+}
+
+.no-saved {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-size: 14px;
+}
+.saved-li {
+  .saved-sub-h1 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--dark);
+    font-weight: bold;
+    align-items: center;
+  }
+  .saved-sub-box {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    display: flex;
+
+    .saved-sub-info {
+      padding: 15px 0 15px 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #f0f0f0;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        width: 0;
+        height: 0;
+        border-top: 48px solid transparent; /* 左边透明 */
+        border-bottom: 48px solid transparent; /* 右边透明 */
+        border-left: 20px solid #f0f0f0; /* 底边蓝色，形成三角形 */
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: -23px;
+        width: 0;
+        height: 0;
+        border-top: 56px solid transparent; /* 左边透明 */
+        border-bottom: 55px solid transparent; /* 右边透明 */
+        border-left: 22px solid #fff; /* 底边蓝色，形成三角形 */
+      }
+    }
+    .saved-sub-desc {
+      flex: 1;
+      padding: 15px 15px 15px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #e8f0f8;
+      .box-text {
+        display: inline-block;
+        white-space: nowrap; /* 防止换行 */
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .unit {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/* <div class="saved-li">
+<div class="saved-sub-h1">保存方案一：</div>
+<div class="saved-sub-box">
+  <div class="saved-sub-info">
+    <div class="text">智能柜数量：29台</div>
+    <div class="text">每日销售2瓶/天</div>
+    <div class="text">运营时长：1年</div>
+  </div>
+  <div class="saved-sub-desc">
+    <div class="text">
+      <span class="tpl">年收益：</span>
+      <span class="unit">￥</span>
+      <span class="num">3600</span>
+    </div>
+    <div class="text">年收益率：120%</div>
+  </div>
+</div>
+</div> */
+
+@media (min-width: 400px) {
+  .app-container {
+    padding: 25px 20px;
+  }
+
+  .btn {
+    padding: 12px 5px;
+    font-size: 15px;
+  }
+}

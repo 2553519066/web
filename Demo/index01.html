@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>中九科技-智能柜利润计算器</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
+        :root {
+            --primary: #2a5caa;
+            --secondary: #f8b62b;
+            --dark: #333;
+            --light: #f8f9fa;
+            --success: #28a745;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+            padding: 0;
+            font-size: 16px;
+        }
+        
+        .app-container {
+            max-width: 100%;
+            min-height: 100vh;
+            background: white;
+            padding: 20px 15px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .input-section {
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-title {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-title:before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            margin-right: 8px;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .slider {
+            flex: 1;
+            height: 6px;
+            -webkit-appearance: none;
+            background: #e0e0e0;
+            border-radius: 3px;
+            outline: none;
+            margin-right: 15px;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .value-display {
+            min-width: 50px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            flex: 1 0 calc(25% - 8px);
+            min-width: 0;
+            padding: 12px 5px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .select-wrapper {
+            position: relative;
+        }
+        
+        .select-wrapper:after {
+            content: "▼";
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+            font-size: 12px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        
+        .result-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .card-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .highlight-card {
+            background: var(--primary);
+            grid-column: span 2;
+        }
+        
+        .highlight-card .card-title,
+        .highlight-card .card-value {
+            color: white;
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .save-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(42,92,170,0.2);
+        }
+        
+        .saved-list {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .saved-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .saved-title {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .saved-detail {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .saved-profit {
+            font-weight: bold;
+            color: var(--success);
+            font-size: 14px;
+        }
+        
+        .no-saved {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+        @media (min-width: 400px) {
+            .app-container {
+                padding: 25px 20px;
+            }
+            
+            .btn {
+                padding: 12px 5px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="logo">中九科技·千柜计划</div>
+            <div class="subtitle">智能零售柜利润计算器</div>
+        </div>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <div class="input-title">1. 智能柜数量</div>
+                <div class="slider-container">
+                    <input type="range" min="1" max="100" value="1" class="slider" id="cabinetSlider">
+                    <div class="value-display" id="cabinetValue">1台</div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-title">2. 每日销量（瓶/柜）</div>
+                <div class="btn-group" id="bottleBtns">
+                    <button class="btn" data-bottles="1">1瓶</button>
+                    <button class="btn active" data-bottles="2">2瓶</button>
+                    <button class="btn" data-bottles="5">5瓶</button>
+                    <button class="btn" data-bottles="10">10瓶</button>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-title">3. 运营时长</div>
+                <div class="select-wrapper">
+                    <select id="durationSelect">
+                        <option value="30">1个月</option>
+                        <option value="90">3个月</option>
+                        <option value="180">6个月</option>
+                        <option value="365" selected>1年</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="result-section">
+            <div class="result-cards">
+                <div class="card">
+                    <div class="card-title">日均收益</div>
+                    <div class="card-value" id="dailyProfit">10元</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">月均收益</div>
+                    <div class="card-value" id="monthlyProfit">300元</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="card-title">年收益 (ROI)</div>
+                    <div class="card-value" id="yearlyProfit">3,600元 (120%)</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="profitChart"></canvas>
+            </div>
+        </div>
+        
+        <button class="save-btn" id="saveBtn">保存当前方案</button>
+        
+        <div class="saved-list" id="savedList">
+            <div class="no-saved">暂无保存的方案</div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化图表
+        const ctx = document.getElementById('profitChart').getContext('2d');
+        let profitChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['1月', '3月', '6月', '1年'],
+                datasets: [{
+                    data: [300, 900, 1800, 3600],
+                    backgroundColor: '#2a5caa',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => '累计收益: ' + ctx.raw + '元'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { callback: (v) => v + '元' }
+                    }
+                }
+            }
+        });
+
+        // 保存的方案
+        let savedScenarios = [];
+        
+        // 计算收益
+        function calculate() {
+            const cabinets = parseInt(document.getElementById('cabinetSlider').value);
+            const bottles = parseInt(document.querySelector('#bottleBtns .active').dataset.bottles);
+            const days = parseInt(document.getElementById('durationSelect').value);
+            
+            // 计算收益
+            const daily = bottles * 5 * cabinets;
+            const monthly = daily * 30;
+            const yearly = monthly * 12;
+            const roi = Math.round(yearly / (cabinets * 3000) * 100);
+            
+            // 更新显示
+            document.getElementById('dailyProfit').textContent = daily + '元';
+            document.getElementById('monthlyProfit').textContent = monthly + '元';
+            document.getElementById('yearlyProfit').textContent = yearly.toLocaleString() + '元 (' + roi + '%)';
+            document.getElementById('cabinetValue').textContent = cabinets + '台';
+            
+            // 更新图表
+            updateChart(monthly);
+            
+            return { cabinets, bottles, days, daily, monthly, yearly, roi };
+        }
+        
+        // 更新图表
+        function updateChart(monthlyProfit) {
+            profitChart.data.datasets[0].data = [
+                monthlyProfit * 1,
+                monthlyProfit * 3,
+                monthlyProfit * 6,
+                monthlyProfit * 12
+            ];
+            profitChart.update();
+        }
+        
+        // 保存方案
+        function saveScenario() {
+            const data = calculate();
+            const name = `${data.cabinets}台 × ${data.bottles}瓶`;
+            
+            savedScenarios.unshift({
+                name,
+                data
+            });
+            
+            renderSavedList();
+        }
+        
+        // 渲染保存的方案列表
+        function renderSavedList() {
+            const container = document.getElementById('savedList');
+            
+            if(savedScenarios.length === 0) {
+                container.innerHTML = '<div class="no-saved">暂无保存的方案</div>';
+                return;
+            }
+            
+            container.innerHTML = savedScenarios.map(item => `
+                <div class="saved-item">
+                    <div class="saved-title">${item.name}</div>
+                    <div class="saved-detail">柜数: ${item.data.cabinets}台 | 销量: ${item.data.bottles}瓶/天</div>
+                    <div class="saved-detail">时长: ${getDurationText(item.data.days)}</div>
+                    <div class="saved-profit">年收益: ${item.data.yearly.toLocaleString()}元 (ROI: ${item.data.roi}%)</div>
+                </div>
+            `).join('');
+        }
+        
+        // 获取时长文本
+        function getDurationText(days) {
+            const months = days / 30;
+            return months >= 12 ? '1年' : months + '个月';
+        }
+        
+        // 事件监听
+        document.getElementById('cabinetSlider').addEventListener('input', function() {
+            document.getElementById('cabinetValue').textContent = this.value + '台';
+            calculate();
+        });
+        
+        document.querySelectorAll('#bottleBtns .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#bottleBtns .btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                calculate();
+            });
+        });
+        
+        document.getElementById('durationSelect').addEventListener('change', calculate);
+        document.getElementById('saveBtn').addEventListener('click', saveScenario);
+        
+        // 初始化
+        calculate();
+    </script>
+</body>
+</html>
