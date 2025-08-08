@@ -49,7 +49,7 @@ body {
 }
 
 .logo {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   font-weight: bold;
   letter-spacing: 2px;
   color: #fff;
@@ -110,7 +110,7 @@ body {
 }
 
 .input-title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 12px;
   color: var(--dark);
   font-weight: bold;
@@ -181,7 +181,7 @@ body {
   background: white;
   border: 1px solid #ddd;
   border-radius: 25px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   text-align: center;
   transition: all 0.2s;
 }
@@ -191,7 +191,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0);
   min-width: 0;
   padding: 12px 5px 12px 30px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   text-align: left;
   transition: all 0.2s;
   position: relative;
@@ -323,7 +323,7 @@ select {
   color: white;
   border: none;
   border-radius: 50px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -370,7 +370,7 @@ select {
   font-size: 1.4rem;
 }
 .saved-sub-h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 12px;
   color: var(--dark);
   font-weight: bold;
@@ -391,6 +391,7 @@ select {
   flex: 1;
   padding: 15px 15px 15px 35px;
   display: flex;
+  font-size: 1.4rem;
   flex-direction: column;
   justify-content: center;
   background-color: #e8f0f8;
@@ -400,11 +401,15 @@ select {
   white-space: nowrap; /* 防止换行 */
 }
 .saved-sub-box .saved-sub-desc .unit {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+}
+.saved-sub-box .saved-sub-desc .num {
+  font-size: 1.6rem;
 }
 .saved-sub-info {
   padding: 15px 0 15px 15px;
   flex: 1;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

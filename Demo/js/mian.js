@@ -19,8 +19,13 @@ let profitChart = new Chart(ctx, {
     plugins: {
       legend: { display: false },
       tooltip: {
+        displayColors: false, // 禁用 tooltip 的颜色显示
+        bodyFont: { size: 16 },
         callbacks: {
-          label: (ctx) => "累计收益: " + ctx.raw + "元"
+          title: () => {
+            return ""
+          }, // 禁用 tooltip 的 title
+          label: (ctx) => `${ctx.raw}元`
         }
       }
     },
@@ -28,6 +33,11 @@ let profitChart = new Chart(ctx, {
     barThickness: 15, // 设置柱状图的宽度
     maxBarThickness: 20, // 去掉过小的限制
     scales: {
+      x: {
+        grid: {
+          drawTicks: false // 绘制刻度线
+        }
+      },
       y: {
         grid: {
           display: true, // 显示网格线
@@ -139,7 +149,7 @@ function renderSavedList() {
             <div class="saved-sub-box">
               <div class="saved-sub-info">
                 <div class="text">智能柜数量：${item.data.cabinets}台</div>
-                <div class="text">每日销售${item.data.bottles}瓶/天</div>
+                <div class="text">每日销售：${item.data.bottles}瓶/天</div>
                 <div class="text">运营时长：${getDurationText(item.data.days)}</div>
               </div>
               <div class="saved-sub-desc">
