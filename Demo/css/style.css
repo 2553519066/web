@@ -199,7 +199,7 @@ body {
   height: 20px;
   border-radius: 50%;
   background-color: var(--primary);
-  background-image: url(/images/dg.png);
+  background-image: url(../images/dg.png);
   background-size: 64% 54%;
   background-position: center;
   background-repeat: no-repeat;
