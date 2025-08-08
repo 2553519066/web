@@ -80,23 +80,39 @@ function numberToChinese(num) {
     .map((digit) => chineseNumbers[digit])
     .join("")
 }
-let saveNum = 0
 function saveScenario() {
   const data = calculate()
   const name = `${data.cabinets}台 × ${data.bottles}瓶`
-  savedScenarios.unshift({
-    name,
-    h1: `保存方案${numberToChinese(++saveNum)}`,
-    data
-  })
 
+  // 新建方案对象
+  const newScenario = {
+    name,
+    h1: `保存方案${numberToChinese(savedScenarios.length + 1)}`,
+    data
+  }
+  // 检查是否已有相同的 bottles, cabinets, days
+  const isDuplicate = savedScenarios.some((item) => item.data.bottles === newScenario.data.bottles && item.data.cabinets === newScenario.data.cabinets && item.data.days === newScenario.data.days)
+
+  if (isDuplicate) {
+    // console.log("数据已保存过了")
+    return // 如果是重复的，直接返回
+  }
+
+  // 在数组最前面插入新的方案
+  savedScenarios.unshift(newScenario)
+
+  // 去重：根据 bottles, cabinets, days 去重
+  savedScenarios = savedScenarios
+    .reverse()
+    .filter((item, index, self) => index === self.findIndex((t) => t.data.bottles === item.data.bottles && t.data.cabinets === item.data.cabinets && t.data.days === item.data.days))
+    .reverse() // 再次反转以保持原来的顺序
+  // 渲染保存的方案列表
   renderSavedList()
 }
 
 // 渲染保存的方案列表
 function renderSavedList() {
   const container = document.getElementById("savedList")
-
   if (savedScenarios.length === 0) {
     container.innerHTML = '<div class="no-saved">暂无保存的方案</div>'
     return
