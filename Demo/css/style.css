@@ -49,17 +49,30 @@ body {
 
 /* 内容区域 */
 .app-main {
-  background-color: #fff;
   /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); 设置阴影 */
-  box-shadow: 1px -7px 20px 4px rgba(186, 215, 228, 0.8);
-  border-radius: 10px; /* 圆角效果 */
-  padding: 10px 10px;
   position: relative;
   top: -10px;
 }
 
 .input-section {
-  margin-bottom: 20px;
+  box-shadow: 1px -7px 20px 4px rgba(186, 215, 228, 0.8);
+  border-radius: 10px; /* 圆角效果 */
+  padding: 10px 10px;
+  background-color: #fff;
+  position: relative;
+  .hr-dooted {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 1px dashed #999999;
+    width: calc(100% - 30px);
+  }
+}
+.result-mian {
+  border-radius: 10px; /* 圆角效果 */
+  padding: 10px 10px;
+  background-color: #fff;
 }
 
 .input-group {
@@ -126,6 +139,7 @@ body {
 
 .btn {
   flex: 1 0 calc(25% - 8px);
+  user-select: none;
   min-width: 0;
   padding: 12px 5px;
   background: white;
@@ -138,6 +152,7 @@ body {
 }
 .btn-tag {
   flex: 1 0 calc(25% - 8px);
+  user-select: none;
   background: rgba(0, 0, 0, 0);
   border: 1px solid rgba(0, 0, 0, 0);
   min-width: 0;

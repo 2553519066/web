@@ -35,44 +35,47 @@
           <div class="input-group">
             <div class="input-title">运营时长</div>
             <div class="btn-group select-wrapper" id="durationSelect">
-              <button class="btn-tag" data-bottles="1">1个月</button>
-              <button class="btn-tag active" data-bottles="2">3个月</button>
-              <button class="btn-tag" data-bottles="5">6个月</button>
-              <button class="btn-tag" data-bottles="10">1年</button>
+              <button class="btn-tag" data-bottles="30">1个月</button>
+              <button class="btn-tag active" data-bottles="90">3个月</button>
+              <button class="btn-tag" data-bottles="180">6个月</button>
+              <button class="btn-tag" data-bottles="365">1年</button>
             </div>
           </div>
+          <div class="hr-dooted"></div>
         </div>
 
-        <div class="result-section">
-          <div class="result-cards">
-            <div class="card">
-              <div class="card-value" id="dailyProfit">10</div>
-              <div class="card-title">日均收益</div>
+        <div class="result-mian">
+          <div class="result-section">
+            <div class="result-cards">
+              <div class="card">
+                <div class="card-value" id="dailyProfit">10</div>
+                <div class="card-title">日均收益</div>
+              </div>
+              <div class="card">
+                <div class="card-value" id="monthlyProfit">300</div>
+                <div class="card-title">月均收益</div>
+              </div>
+              <div class="card">
+                <div class="card-value" id="yearlyProfit">300</div>
+                <div class="card-title">年均收益</div>
+              </div>
+              <div class="card highlight-card">
+                <div class="card-value" id="yearlyProfitRatio">600%</div>
+                <div class="card-title">年收益率</div>
+              </div>
             </div>
-            <div class="card">
-              <div class="card-value" id="monthlyProfit">300</div>
-              <div class="card-title">月均收益</div>
-            </div>
-            <div class="card">
-              <div class="card-value" id="yearlyProfit">300</div>
-              <div class="card-title">年均收益</div>
-            </div>
-            <div class="card highlight-card">
-              <div class="card-value" id="yearlyProfitRatio">600%</div>
-              <div class="card-title">年收益率</div>
+            <div class="chart-container">
+              <canvas id="profitChart"></canvas>
             </div>
           </div>
-          <div class="chart-container">
-            <canvas id="profitChart"></canvas>
-          </div>
-        </div>
 
-        <div class="save-main">
-          <button class="save-btn" id="saveBtn">保存当前方案</button>
-        </div>
-        <div class="saved-list" id="savedList">
-          <!-- 保存方案二： -->
-          <div class="no-saved">暂无保存的方案</div>
+          <div class="save-main">
+            <button class="save-btn" id="saveBtn">保存当前方案</button>
+          </div>
+          <div class="saved-list" id="savedList">
+            <!-- 保存方案二： -->
+            <div class="no-saved">暂无保存的方案</div>
+          </div>
         </div>
       </div>
     </div>
