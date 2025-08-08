@@ -14,6 +14,7 @@
 }
 html {
   font-size: 62.5%; /* 16px * 62.5% = 10px */
+  user-select: none;
 }
 
 body {
@@ -74,7 +75,7 @@ body {
 .input-section {
   /* box-shadow: 1px -7px 20px 4px rgba(186, 215, 228, 0.8); */
   border-radius: 10px; /* 圆角效果 */
-  padding: 10px 10px;
+  padding: 15px 15px;
   background-color: #fff;
   position: relative;
   .hr-dooted {
@@ -88,7 +89,7 @@ body {
 }
 .result-mian {
   border-radius: 10px; /* 圆角效果 */
-  padding: 10px 10px;
+  padding: 15px 15px;
   background-color: #fff;
 }
 
@@ -103,6 +104,9 @@ body {
   font-weight: bold;
   display: flex;
   align-items: center;
+  &.bb {
+    margin-bottom: 0;
+  }
 }
 
 .input-title:before {
@@ -156,7 +160,6 @@ body {
 
 .btn {
   flex: 1 0 calc(25% - 8px);
-  user-select: none;
   min-width: 0;
   padding: 2px 5px;
   background: white;
@@ -164,19 +167,16 @@ body {
   border-radius: 25px;
   font-size: 1.4rem;
   text-align: center;
-  cursor: pointer;
   transition: all 0.2s;
 }
 .btn-tag {
   flex: 1 0 calc(25% - 8px);
-  user-select: none;
   background: rgba(0, 0, 0, 0);
   border: 1px solid rgba(0, 0, 0, 0);
   min-width: 0;
   padding: 12px 5px 12px 30px;
   font-size: 1.4rem;
   text-align: left;
-  cursor: pointer;
   transition: all 0.2s;
   position: relative;
   white-space: nowrap;
@@ -216,6 +216,7 @@ body {
 
 .select-wrapper {
   position: relative;
+  margin-bottom: 0;
 }
 
 .select-wrapper:after {
