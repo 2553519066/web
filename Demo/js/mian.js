@@ -7,8 +7,9 @@ let profitChart = new Chart(ctx, {
     datasets: [
       {
         data: [300, 900, 1800, 3600],
-        backgroundColor: "#2a5caa",
-        borderRadius: 0
+        backgroundColor: "#1b68bc",
+        borderRadius: 0,
+        borderWidth: 0
       }
     ]
   },
@@ -23,6 +24,9 @@ let profitChart = new Chart(ctx, {
         }
       }
     },
+    // 控制柱子的宽度
+    barThickness: 15, // 设置柱状图的宽度
+    maxBarThickness: 20, // 去掉过小的限制
     scales: {
       y: {
         beginAtZero: true,
