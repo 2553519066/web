@@ -1,1 +1,0 @@
-import{d as a,r as s,c as t,w as e,a as o,o as d,f as n,N as r,u}from"./index-PVX4T5SZ.js";const _=u(a({__name:"index",setup(a){const u=s(!1);return(a,s)=>{const _=o("head-top");return d(),t(_,{loading:u.value,is_footer_mar:!1},{default:e(()=>[n(r,{text:"功能开发中，敬请期待！"})]),_:1},8,["loading"])}}}),[["__scopeId","data-v-a550b264"]]);export{_ as default};
