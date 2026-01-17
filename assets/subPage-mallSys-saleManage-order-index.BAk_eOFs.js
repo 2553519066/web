@@ -1,1 +1,0 @@
-import{d as a,r as s,c as t,w as e,a as o,o as n,f as r}from"./index-GbXCx2Zj.js";const d=a({__name:"index",setup(a){const d=s(!1);return(a,s)=>{const i=o("b-navbar"),l=o("head-top");return n(),t(l,{loading:d.value,is_footer_mar:!1},{default:e(()=>[r(i,{title:"订单列表"})]),_:1},8,["loading"])}}});export{d as default};
