@@ -1,1 +1,0 @@
-import{C as t}from"./create-or-edit-CsPmHXlD.js";import{d as r,j as a,k as i}from"./index-Cyvvb__l.js";import"./index-Cn0yAjcP.js";const c=r({name:"ContractTemplateEdit",__name:"edit",props:{id:{type:String,required:!0}},setup(e){return(o,n)=>(i(),a(t,{id:e.id},null,8,["id"]))}});export{c as default};
