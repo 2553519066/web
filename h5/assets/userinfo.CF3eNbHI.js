@@ -1,0 +1,1 @@
+import{aj as s,a4 as e,U as o,X as r}from"./index-BvTRnY6x.js";const n=s("userStore",{state:()=>({userInfo:r("userInfo")||{}}),actions:{setUserInfo(s){this.userInfo=s,o("userInfo",s)},clearUserInfo(){this.userInfo={},e("Token"),e("userInfo")}}});export{n as u};
