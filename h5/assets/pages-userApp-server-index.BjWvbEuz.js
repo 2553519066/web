@@ -1,1 +1,0 @@
-import{d as a,r as s,a as t,w as e,b as o,o as d,g as n,N as r,A as _}from"./index-DCNju1Ar.js";const i=_(a({__name:"index",setup(a){const _=s(!1);return(a,s)=>{const i=o("head-top");return d(),t(i,{loading:_.value,is_footer_mar:!1},{default:e(()=>[n(r,{text:"功能开发中，敬请期待！"})]),_:1},8,["loading"])}}}),[["__scopeId","data-v-a550b264"]]);export{i as default};
